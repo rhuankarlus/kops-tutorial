@@ -36,7 +36,7 @@ class TodoListRoute implements AppRoute {
     }, {
         method: 'PUT',
         path: '/todos',
-        handler: async ({ payload }: Request, h: ResponseToolkit) => {
+        handler: async ({ payload }: Request) => {
             const { dbConnection, db } = await Services.database.getDatabaseConnection();
             try {
                 const { ops: [insertedTodo] } = await db.collection(TODOS_COLLECTIONS).insertOne({
