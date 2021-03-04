@@ -1,4 +1,12 @@
-node_modules
 npm-debug.log
-Dockerfile
+yarn-error.log
+.kubernetes/
+dbdata/
+dist/
+.git/
+.gitignore
 .dockerignore
+.env
+Dockerfile
+Dockerfile.prod
+docker-compose.yml
