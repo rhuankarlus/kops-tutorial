@@ -10,6 +10,7 @@ class HelloWorldRoute implements AppRoute {
         method: 'GET',
         path: '/hello',
         handler: (request: Request, h: ResponseToolkit) => {
+            request.logger.info('[HelloWorldRoute][%s]: Handling request.', request.path)
             return 'Hello World!';
         }
     });
