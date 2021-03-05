@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app-deployment
+  labels:
+    app: todo_app
+    type: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo_app
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: todo_app
+        type: backend
+    spec:
+      containers:
+        - name: todo-app-backend
+          image: <YOUR_AWS_ACCOUNT_CODE>.dkr.ecr.<YOUR_ECR_REPOSITORY_REGION>.amazonaws.com/todo-app:latest
+          imagePullPolicy: "Always"
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: todo-app-config

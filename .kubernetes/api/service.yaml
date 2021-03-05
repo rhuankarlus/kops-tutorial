@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: todo-app-backend
+  labels:
+    app: todo_app
+    type: backend
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: todo_app
+    type: backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: todo-app-backend
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+spec:
+  rules:
+  - host: <YOUR_DNS_SHOULD_GO_HERE_MY_FRIEND>
+    http:
+      paths:
+      - backend:
+          serviceName: todo-app-backend
+          servicePort: 80
+        path: /

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: todo-app-config
+  labels:
+    app: todo_app
+    type: backend
+data:
+  DATABASE_USERNAME: mongodb_user
+  DATABASE_PASSWORD: super_secret_password
+  DATABASE_URL: mongodb://mongo:27017
+  DATABASE_DB: hello_kops
+  NODE_ENV: production
